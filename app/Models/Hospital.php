@@ -8,11 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Hospital extends Model
 {
     use HasFactory;
-    protected $fillable = [
-        'name',
-        'phone_number',
-        'email',
-        'location_id',
+    protected $guarded = [
+        'id',
     ];
 
     protected function casts(): array
@@ -28,8 +25,18 @@ class Hospital extends Model
         return $this->belongsTo(Location::class);
     }
 
-    public function doctors()
+    public function appointmen()
     {
-        return $this->hasMany(Doctor::class);
+        return $this->hasMany(Appointmen::class);
+    }
+
+    public function category()
+    {
+        return $this->hasMany(Category::class);
+    }
+
+    public function patient()
+    {
+        return $this->hasMany(Patient::class);
     }
 }

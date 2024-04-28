@@ -9,10 +9,7 @@ class Location extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'address',
-        'city',
-        'country',
-        'postal_code',
+        'id',
     ];
     public $timestamps =false;
 
