@@ -8,12 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Location extends Model
 {
     use HasFactory;
+
     protected $fillable = [
         'id',
     ];
+
     public $timestamps =false;
 
-    public function hospital()
+    public function Hospital()
     {
         return $this->hasMany(Hospital::class);
     }

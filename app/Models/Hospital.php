@@ -8,35 +8,30 @@ use Illuminate\Database\Eloquent\Model;
 class Hospital extends Model
 {
     use HasFactory;
-    protected $guarded = [
-        'id',
-    ];
+
+    protected $fillable = [
+        'name',
+        'location'];
 
     protected function casts(): array
     {
         return [
             'created_at' => 'datetime',
-            'update_at' => 'datatime',
-        ]
-    }
-
-    public function location()
+            'updated_at' => 'datetime',
+        ];
+    } 
+    public function patient()
     {
-        return $this->belongsTo(Location::class);
-    }
-
+        return $this->belongsTo(Patient::class);
+    }  
+    
     public function appointmen()
     {
-        return $this->hasMany(Appointmen::class);
+        return $this->hasMany(Appointmen::class);  
     }
 
     public function category()
     {
-        return $this->hasMany(Category::class);
-    }
-
-    public function patient()
-    {
-        return $this->hasMany(Patient::class);
+        return $this->belongsTo(Category::class);
     }
 }
