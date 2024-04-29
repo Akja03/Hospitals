@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HospitalController;
+use App\Http\Controllers\LocationController;
 use App\Http\Controllers\AppointmenController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
